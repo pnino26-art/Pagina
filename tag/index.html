@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Contatto</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="content">
+        <h2>Accesso Riservato</h2>
+        <p>Scansiona il tag NFC autorizzato per proseguire.</p>
+    </div>
+</div>
+
+<script>
+    // Inserisci il numero di telefono invertito (es: "+393331234567" diventa "765432133393+")
+    const NUMBER_REVERSED = "584031682393+";
+    
+    // Imposta la chiave segreta
+    const SECRET_KEY = "segreto123";
+
+    // Controlla l'hash nell'URL
+    const currentHash = window.location.hash.substring(1);
+
+    if (currentHash === SECRET_KEY) {
+        const phoneNumber = NUMBER_REVERSED.split('').reverse().join('');
+        const container = document.getElementById('content');
+        container.innerHTML = `
+            <h2>Chiama Nino</h2>
+            <a href="tel:${phoneNumber}" class="btn">Chiama ${phoneNumber}</a>
+        `;
+    }
+</script>
+
+</body->
+</html>
